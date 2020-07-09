@@ -1,0 +1,40 @@
+body {font-family: Roboto;margin: 0px;padding: 0px;background: #ffffff;}
+.orderbox a { text-decoration: none; color: none; }
+.mb_header {width: 100%; height: 54px;background: #757575;display: flex; justify-content:space-between; box-shadow: 0 4px 3px 0 rgba(2, 5, 8, 0.69), 0 0 1px 0 rgba(41,92,176,.25);}
+.content {width: 96%;margin: 0 auto;padding-top: 110px;}
+.menu_switch {display: flex;margin: 0 auto;justify-content: space-around;height: 46px;margin-top: 20px;margin-bottom: 20px;width: 96%;flex-wrap: wrap;}
+.switch_option {padding: 14px;font-size: 18px;width: 100%;box-shadow: 0 4px 3px 0 rgba(34,90,182,.12), 0 0 1px 0 rgba(41,92,176,.25);background: #fff;border-top-left-radius: 7px;}
+.orderbox {box-shadow: 0 6px 4px 0 rgba(2, 1, 1, 0.23), 0 0 1px 0 rgba(14, 3, 3, 0.25);margin-bottom: 20px;background: #fff;padding-bottom: 4px;border-radius: 6px;  color: black}
+.order_header {display: flex;justify-content: space-between;padding: 10px;background: #dedede;border-top-left-radius: 5px;border-top-right-radius: 5px;}
+.order_header_id {color: #2b2b2b;font-size: 21px;padding-top: 8px;}
+.order_timepast {color: #2bff6d;background: #414443;padding: 7px;border-radius: 5px;font-size: 22px;}
+.fromto_label {color: #909090;margin-bottom: 5px;padding: 10px;border-top: 1px solid #dede;}
+.location_title {color: #3c454c;font-weight: 500;font-size: 19px;padding: 10px;}
+.order_to {padding-bottom: 10px;padding-top: 10px;}
+.accept_order_btn {margin: 0 auto;background: linear-gradient(180deg, #ffc846, #eab025);font-size: 20px;padding: 14px;width: 90%;font-weight: 500;color: #000000;border-radius: 9px;margin-top: 20px;text-align: center;}
+.pickup_order_btn { margin: 0 auto;background: linear-gradient(180deg, #ffc846, #eab025);font-size: 20px;padding: 14px;width: 90%;font-weight: 500;color: #000000;border-radius: 9px;margin-top: 20px;text-align: center; }
+.order_status_delivered {margin: 0 auto;background: linear-gradient(180deg, #00c071, #00c071);font-size: 20px;padding: 14px;width: 90%;font-weight: 500;color: white;border-radius: 9px;margin-top: 20px;text-align: center;}
+.logo_text {width: 86%;color: #fff;margin-top: 15px;font-size: 19px;margin-left: 12px;}
+.hamb_btn { padding-right: 10px;}
+.hamb_btn img {height: 22px;margin-top: 12px;filter: invert(1) brightness(3.5);}
+.order_user_info {display: flex;padding: 20px 10px;justify-content: space-between;}
+.order_user_name {font-size: 20px;}
+.order_user_tel {font-size: 20px;}
+.order_details {padding: 10px;font-size: 20px;}
+.payment_details {display: flex;justify-content: space-between;padding: 10px;font-size: 18px;}
+.payment_method {font-size: 20px;font-weight: 500;}
+.total_amount {font-size: 20px;font-weight: 500;}
+.cancel_order_btn {margin: 0 auto;background: linear-gradient(180deg, #ffb598, #e4966a);font-size: 20px;padding: 14px;width: 90%;font-weight: 500;color: #000000;border-radius: 9px;text-align: center;margin-top: 20px;}
+#dropped_menu { display: none; }
+.dropdown_menu {width: 98%;box-shadow: 0 4px 3px 0 rgba(2, 5, 8, 0.23), 0 0 1px 0 rgba(41,92,176,.25);display: block;margin: 0 auto;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;margin-top: 5px;}
+.drop_item {padding: 13px;font-size: 18px;border-top: 1px solid #ffffff;background: #e0e0e0;}
+/* login page */
+.welcome_admin{width: 100%;display: flex;flex-direction: column;justify-content: center;align-items: center;height:85vh;}
+.welcome_admin h1{margin-bottom: 50px;color: red;font-family: sans-serif;}
+.welcome_admin input{width: 300px;height: 20px;padding: 10px;padding-left: 20px;border: none;outline: none;border-radius: 2px;border: 1px solid #acacac;}
+#logbtn{ padding: 10px;width: 332px;border: none;cursor: pointer;color: white;background: red;transition: .5s; }
+.error_div {background-color: #e8e85a;padding: 10px;margin-top: 85px;}
+.active {
+    background: gray;
+    color: white;
+}

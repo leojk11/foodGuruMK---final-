@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Restaurant Admin</title>
+	<base href='/'>
+	<link rel="stylesheet" type="text/css" href="restaurants/rest-style">
+	<link rel="stylesheet" type="text/css" href="restaurants/rest-circle-style">
+	<link rel="icon" type="image/png" href="icons/favicon.png" sizes="32x32">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Work+Sans:600" rel="stylesheet">
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="./icons/css/all.css">
+	<script src="https://kit.fontawesome.com/8012b4644d.js" crossorigin="anonymous"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="full_wrapper">
+		<div class="left_menu">
+			<i class="fas fa-bars"></i>
+			<div class="dashboard_logo">Restaurant Admin</div>
+			<div class="menu_links">
+				<div class="logo-profile">
+					<img id="rest-logo">
+					<label id="rest_name"></label>				
+				</div>
+				<div class="desc-label"></div>
+				<a href="restaurants/dashboard">
+					<div class="menu_item"><i class="fas fa-chart-line"></i>Dashboard</div>
+				</a>
+				<a href="restaurants/orders">
+					<div class="menu_item"><i class="fas fa-truck-loading"></i>Orders Activity</div>
+				</a>
+
+				<a href="restaurants/meals">
+					<div class="menu_item"><i class="fas fa-utensils"></i>Active meals</div>
+				</a>
+				<a href="restaurants/my-revenue">
+					<div class="menu_item"><i class="fas fa-coins"></i>My Revenue</div>
+				</a>
+				<a href="restaurants/my-profile">
+					<div class="menu_item"><i class="far fa-user"></i>My profile</div>
+				</a>
+				<a href="restaurants/support">
+					<div class="menu_item"><i class="far fa-question-circle"></i>Support</div>
+				</a>
+			</div>
+		</div>
+		<!-- mobile-menu part -->
+		<div class="mobile-part">
+			<div class="mobile-top">
+				<div class="logo-profile-mob">
+					<div class="hello-rest">Welcome,</div>
+					<label id="rest_name-mob"></label>
+				</div>
+				<div class="mobile-btn"><img src="desktopadmin/hamburger"></div>
+			</div>
+			<div class="mobile-menu">
+				<div class="mobile-flex">
+					<div class="items-mob">
+						<a href="restaurants/dashboard">
+							<div class="menu_item-mob"><i class="fas fa-chart-line"></i>Dashboard</div>
+						</a>
+						<a href="restaurants/orders">
+							<div class="menu_item-mob"><i class="fas fa-truck-loading"></i>Orders Activity</div>
+						</a>
+						<a href="restaurants/meals">
+							<div class="menu_item-mob"><i class="fas fa-utensils"></i>Active meals</div>
+						</a>
+						<a href="restaurants/my-revenue">
+							<div class="menu_item-mob"><i class="fas fa-coins"></i>My Revenue</div>
+						</a>
+						<a href="restaurants/my-profile">
+							<div class="menu_item-mob"><i class="far fa-user"></i>My profile</div>
+						</a>
+						<a href="restaurants/support">
+							<div class="menu_item-mob"><i class="far fa-question-circle"></i>Support</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- mobile-menu part -->
+		<div class="dashboard">
+			<div class="salesoverview toolbox">
+				<div class="information-cards-scroll ">
+					<div class="info-card color-card-1">
+						<div class="info-card-inside">
+							<div class="daily-click">
+								<label>Daily Orders<i class="fas fa-box-open"></i></label>
+								<span id="today_orders_num"></span>
+							</div>
+							<div class="frametime-click" style="display:none">
+								<label>All Time Orders<i class="fas fa-box-open"></i></label>
+								<span id="all_time_orders"></span>
+							</div>
+							<div class="choose-info">
+								<div class="daily-info clicked_1" id="change_1">
+									<a href="#" id="click_1">Daily Orders</a>
+								</div>
+								<div class="frametime unclicked_1" id="change_2">
+									<a href="#" id="click_2">All Time Orders</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="info-card color-card-4">
+						<div class="info-card-inside">
+							<label>Revenue<i class="fas fa-coins"></i></label>
+							<span id="rest_revenue"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="graph">
+				<div class="graph-contect">
+					<h1>Orders</h1>
+					<p id="lastmonths">Last 4 months</p>
+					<div class="aboslute">
+					</div>
+					<table id="q-graph">
+						<thead>
+						</thead>
+						<tbody>
+							<tr class="qtr" id="q1">
+								<th scope="row">01/11/2019</th>
+								<td class="sent bar" style="height: 111px;">
+									<p></p>
+								</td>
+								<td class="grap bar" style="height: 250px;">
+									<p></p>
+								</td>
+								<td class="grap2 bar" style="height: 205px;">
+									<p></p>
+								</td>
+								<td class="paid bar" style="height: 99px;">
+									<p></p>
+								</td>
+							</tr>
+							<tr class="qtr" id="q2">
+								<th scope="row">01/12/2019</th>
+								<td class="sent bar" style="height: 111px;">
+									<p></p>
+								</td>
+								<td class="grap bar" style="height: 250px;">
+									<p></p>
+								</td>
+								<td class="grap2 bar" style="height: 205px;">
+									<p></p>
+								</td>
+								<td class="paid bar" style="height: 99px;">
+									<p></p>
+								</td>
+							</tr>
+							<tr class="qtr" id="q3">
+								<th scope="row">01/01/2020</th>
+								<td class="sent bar" style="height: 111px;">
+									<p></p>
+								</td>
+								<td class="grap bar" style="height: 250px;">
+									<p></p>
+								</td>
+								<td class="grap2 bar" style="height: 205px;">
+									<p></p>
+								</td>
+								<td class="paid bar" style="height: 99px;">
+									<p></p>
+								</td>
+							</tr>
+							<tr class="qtr" id="q4">
+								<th scope="row">01/02/2020</th>
+								<td class="sent bar" style="height: 111px;">
+									<p></p>
+								</td>
+								<td class="grap bar" style="height: 250px;">
+									<p></p>
+								</td>
+								<td class="grap2 bar" style="height: 205px;">
+									<p></p>
+								</td>
+								<td class="paid bar" style="height: 99px;">
+									<p></p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div id="ticks">
+						<div class="tick" style="height: 59px;">
+							<p>100%</p>
+						</div>
+						<div class="tick" style="height: 59px;">
+							<p>85%</p>
+						</div>
+						<div class="tick" style="height: 59px;">
+							<p>50%</p>
+						</div>
+						<div class="tick" style="height: 59px;">
+							<p>30%</p>
+						</div>
+						<div class="tick" style="height: 59px;">
+							<p>0%</p>
+						</div>
+					</div>
+
+				</div>
+				<div class="circles">
+					<h1>Sales</h1>
+					<p>Last 3 months</p>
+					<div class="circles-bar">
+						<div class="c100 p35 big ">
+							<span>31%</span>
+							<label>01/11/2019</label>
+							<div class="slice">
+								<div class="bar"></div>
+								<div class="fill"></div>
+							</div>
+						</div>
+						<div class="c100 p75 big ">
+							<span>75%</span>
+							<label>01/12/2019</label>
+							<div class="slice">
+								<div class="bar"></div>
+								<div class="fill"></div>
+							</div>
+						</div>
+						<div class="c100 p5 big ">
+							<span>5%</span>
+							<label>01/01/2020</label>
+							<div class="slice">
+								<div class="bar"></div>
+								<div class="fill"></div>
+							</div>
+						</div>
+					</div>
+
+					</dic>
+				</div>
+
+
+			</div>
+			<!--stats section-->
+		</div>
+		<script src="restaurants/index-js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+	<title>FoodGuru Superadmin - Add new promo code</title>
+	<base href="/">
+	<link rel="stylesheet" type="text/css" href="superadmin/style">
+	<link rel="icon" type="image/png" href="icons/favicon.png" sizes="32x32">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Work+Sans:600" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="icons/icons/css/all.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+<script src="superadmin/add-promo-code-js"></script>
+
+</head>
+<body>
+
+
+
+<div class="full_wrapper">
+
+    <!-- <div class="left_menu">
+
+        <div class="dashboard_logo">FoodGuru Super Admin</div> -->
+    
+        <div class="left_menu">
+
+            <div class="dashboard_logo">FoodGuru Super Admin</div>
+        
+        <div class="menu_links">
+        
+            <a href="superadmin/dashboard"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Dashboard</div></a>
+            <div class="menu_label">Live Activity</div>
+            <a href="superadmin/order-activity"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Orders Activity</div></a>
+            <a href="superadmin/user-activity"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>User Activity</div></a>
+            <a href="superadmin/delivery-activity"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Delivery Activity</div></a>
+            
+            <div class="menu_label">Web App Management</div>
+            <a href="superadmin/manage-meals"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Manage Meals</div></a>
+            <a href="superadmin/manage-categories"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Food Categories</div></a>
+            <a href="superadmin/promo-codes"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Promo Codes</div></a>
+            <a href="superadmin/applications"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Applications</div></a>
+        
+            <div class="menu_label">Bussiness Management</div>
+            <a href="superadmin/manage-restaurants"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Manage Restaurants</div></a>
+            <a href="superadmin/manage-carriers"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Manage Carriers</div></a>
+        
+            <div class="menu_label">Customer Support</div>
+            <a href="superadmin/manage-users"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Manage Users</div></a>
+            <a href=""><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Support Tickets</div></a>
+        
+        </div><!--menu links-->
+        
+        </div><!--left menu-->
+
+
+        <div class="mobile-menu">
+            <div class="mobile-menu-wrapper">
+                <div class="mobile-logo-text">
+                    FoodGuru Superadmin
+                </div>
+    
+                <div class="mobile-hamb">
+                    <img src="desktop/hamb">
+                </div>
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $('.mobile-hamb').click(function(){
+                            $('.dropdown').slideToggle();
+                        })
+                    })
+                </script>
+            </div>
+        </div>
+    
+        <div class="dropdown">
+            <div class="dropdown-wrapper">
+                <a href="superadmin/dashboard"><div class="menu_item">Dashboard</div></a>
+                <div class="menu_label" id="live-activity">
+                    Live Activity
+                    <div class="more-down" id="live-activity-arrow">
+                        <img src="desktop/expand-icon">
+                    </div>
+                </div>
+                <div class="menu_label-under" id='live-activity-drop'>
+                    <a href="superadmin/order-activity"><div class="menu_item_more">Orders Activity</div></a>
+                    <a href="superadmin/user-activity"><div class="menu_item_more">User Activity</div></a>
+                    <a href="superadmin/delivery-activity"><div class="menu_item_more">Delivery Activity</div></a>
+                </div>
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $('#live-activity').click(function(){
+                            $('#live-activity-drop').slideToggle();
+                            // $('#live-activity-arrow').css('transform', 'rotate(180deg) scaleX(-1)');
+                        })
+                    
+                    })
+                </script>
+    
+                <div class="menu_label" id="web-app">
+                    Web App Managment
+                    <div class="more-down">
+                        <img src="desktop/expand-icon">
+                    </div>
+                </div>
+                <div class="menu_label-under" id='web-app-drop'>
+                    <a href="superadmin/manage-meals"><div class="menu_item_more">Manage Meals</div></a>
+                    <a href="superadmin/manage-categories"><div class="menu_item_more">Food Categories</div></a>
+                    <a href="superadmin/promo-codes"><div class="menu_item_more">Promo Codes</div></a>
+                </div>
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $('#web-app').click(function(){
+                            $('#web-app-drop').slideToggle();
+                        })
+                    })
+                </script>
+    
+                <div class="menu_label" id="business-app">
+                    Business Managment
+                    <div class="more-down">
+                        <img src="desktop/expand-icon">
+                    </div>
+                </div>
+                <div class="menu_label-under" id='business-app-drop'>
+                    <a href="superadmin/manage-restaurants"><div class="menu_item_more">Manage Restaurants</div></a>
+                    <a href="superadmin/manage-carriers"><div class="menu_item_more">Manage Carriers</div></a>
+                </div>
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $('#business-app').click(function(){
+                            $('#business-app-drop').slideToggle();
+                        })
+                    })
+                </script>
+    
+                <div class="menu_label" id="customer-managment">
+                    Customer Managment
+                    <div class="more-down">
+                        <img src="desktop/expand-icon">
+                    </div>
+                </div>
+                <div class="menu_label-under" id='customer-managment-drop'>
+                    <a href="superadmin/manage-users"><div class="menu_item_more">Manage Users</div></a>
+                    <a href=""><div class="menu_item_more">Support Tickets</div></a>
+                </div>
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $('#customer-managment').click(function(){
+                            $('#customer-managment-drop').slideToggle();
+                        })
+                    })
+                </script>
+    
+            </div>
+        </div>
+<div class="dashboard">
+	
+<div class="section_title">Add Promo Code</div>	
+ 
+
+<div class="add-meal-first">
+  
+<form method="post" action="" enctype="multipart/form-data">
+    <div class="add-meal go-down3">
+            <!-- <input type="file" style="border:1px solid gray; padding:10px; border-radius:10px;"><br> -->
+   
+        <div class="row">
+            <input id="ex_date" type="text" placeholder="Exp. Date" name="Name" style="width:300px; padding-left:30px; height:43px">
+            <input id="limit" type="text" placeholder="Limit" name="Price" style="width:300px; padding-left:30px; height:43px">
+        </div>
+
+        <input id="code" type="text" placeholder="Code" name="Code" style="width:640px; padding-left:30px; height:43px"> 
+
+        <div class="custom-select">
+            <select id="selectmen" style="border-radius:10px; border:none; outline:none; background: radial-gradient(white, #f5f5f5); padding:10px; margin-top:10px; margin-bottom:10px; padding-left:300px;padding-right:300px;">
+                <option value="0">Type</option>
+                <option value="1">Discount</option>
+                <option value="2">Freebly</option> 
+            </select>
+        </div>
+        <input class="discount" type="text" id="disc_price" placeholder="Discount price" style="display:none; width:640px; padding-left:30px; height:40px"> 
+        <input class="freebly" type="text" id="freebly_type" placeholder="What ..." style="display:none; width:640px; padding-left:30px; height:40px"> 
+        <button id="add_promo_btn"><i class="fas fa-plus-circle"></i>Add Promo Code</button>
+
+    </div>
+</form>	
+
+</div> 
+</div> 
+
+
+</div> 
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var check = $( "#selectmen option:selected" ).val();
+        if(check==1){
+            $("#disc_price").css('display','block');
+
+        }else if(check==2){
+            $("#freebly_type").css('display','block');
+
+        }
+    $("#selectmen").change( function() { 
+    var val = $( "#selectmen").val();
+       
+        
+        if(val==1){
+            $("#disc_price").css('display','block');
+            $("#freebly_type").css('display','none');
+
+        }else if(val==2){ 
+            $("#freebly_type").css('display','block');
+            $("#disc_price").css('display','none');
+
+        }else{
+            $("#disc_price").css('display','none');
+            $("#freebly_type").css('display','none');
+
+        }
+
+
+    });
+    })
+</script>
+
+</body>
+</html>
+
+
+
+

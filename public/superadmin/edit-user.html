@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+	<title>FoodGuru Superadmin - Edit user</title>
+	<base href="/">
+	<link rel="stylesheet" type="text/css" href="superadmin/style">
+	<link rel="icon" href="desktopadmin/favicon" sizes="32x32">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Work+Sans:600" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="icons/icons/css/all.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+<script src="https://kit.fontawesome.com/8012b4644d.js" crossorigin="anonymous"></script>
+<script src="superadmin/edit-user-js"></script>
+
+</head>
+<body>
+
+
+
+<div class="full_wrapper">
+
+    <div class="left_menu">
+
+        <div class="dashboard_logo">FoodGuru Super Admin</div>
+    
+    <div class="menu_links">
+    
+        <a href="superadmin/dashboard"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Dashboard</div></a>
+        <div class="menu_label">Live Activity</div>
+        <a href="superadmin/order-activity"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Orders Activity</div></a>
+        <a href="superadmin/user-activity"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>User Activity</div></a>
+        <a href="superadmin/delivery-activity"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Delivery Activity</div></a>
+        
+        <div class="menu_label">Web App Management</div>
+        <a href="superadmin/manage-meals"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Manage Meals</div></a>
+        <a href="superadmin/manage-categories"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Food Categories</div></a>
+        <a href="superadmin/promo-codes"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Promo Codes</div></a>
+        <a href="superadmin/applications"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Applications</div></a>
+    
+        <div class="menu_label">Bussiness Management</div>
+        <a href="superadmin/manage-restaurants"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Manage Restaurants</div></a>
+        <a href="superadmin/manage-carriers"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Manage Carriers</div></a>
+    
+        <div class="menu_label">Customer Support</div>
+        <a href="superadmin/manage-users"><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Manage Users</div></a>
+        <a href=""><div class="menu_item"><span class="menu_icon"><img src="superadmin/icon"></span>Support Tickets</div></a>
+    
+    </div><!--menu links-->
+    
+    </div><!--left menu-->
+
+    <div class="mobile-menu">
+		<div class="mobile-menu-wrapper">
+			<div class="mobile-logo-text">
+				FoodGuru Superadmin
+			</div>
+
+			<div class="mobile-hamb">
+				<img src="desktop/hamb">
+			</div>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('.mobile-hamb').click(function(){
+						$('.dropdown').slideToggle();
+					})
+				})
+			</script>
+		</div>
+	</div>
+
+	<div class="dropdown">
+		<div class="dropdown-wrapper">
+			<a href="superadmin/dashboard"><div class="menu_item">Dashboard</div></a>
+			<div class="menu_label" id="live-activity">
+				Live Activity
+				<div class="more-down" id="live-activity-arrow">
+					<img src="desktop/expand-icon">
+				</div>
+			</div>
+			<div class="menu_label-under" id='live-activity-drop'>
+				<a href="superadmin/order-activity"><div class="menu_item_more">Orders Activity</div></a>
+        		<a href="superadmin/user-activity"><div class="menu_item_more">User Activity</div></a>
+        		<a href="superadmin/delivery-activity"><div class="menu_item_more">Delivery Activity</div></a>
+			</div>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('#live-activity').click(function(){
+						$('#live-activity-drop').slideToggle();
+						// $('#live-activity-arrow').css('transform', 'rotate(180deg) scaleX(-1)');
+					})
+				
+				})
+			</script>
+
+			<div class="menu_label" id="web-app">
+				Web App Managment
+				<div class="more-down">
+					<img src="desktop/expand-icon">
+				</div>
+			</div>
+			<div class="menu_label-under" id='web-app-drop'>
+				<a href="superadmin/manage-meals"><div class="menu_item_more">Manage Meals</div></a>
+        		<a href="superadmin/manage-categories"><div class="menu_item_more">Food Categories</div></a>
+        		<a href="superadmin/promo-codes"><div class="menu_item_more">Promo Codes</div></a>
+			</div>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('#web-app').click(function(){
+						$('#web-app-drop').slideToggle();
+					})
+				})
+			</script>
+
+			<div class="menu_label" id="business-app">
+				Business Managment
+				<div class="more-down">
+					<img src="desktop/expand-icon">
+				</div>
+			</div>
+			<div class="menu_label-under" id='business-app-drop'>
+				<a href="superadmin/manage-restaurants"><div class="menu_item_more">Manage Restaurants</div></a>
+        		<a href="superadmin/manage-carriers"><div class="menu_item_more">Manage Carriers</div></a>
+			</div>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('#business-app').click(function(){
+						$('#business-app-drop').slideToggle();
+					})
+				})
+			</script>
+
+			<div class="menu_label" id="customer-managment">
+				Customer Managment
+				<div class="more-down">
+					<img src="desktop/expand-icon">
+				</div>
+			</div>
+			<div class="menu_label-under" id='customer-managment-drop'>
+				<a href="superadmin/manage-users"><div class="menu_item_more">Manage Users</div></a>
+        		<a href=""><div class="menu_item_more">Support Tickets</div></a>
+			</div>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('#customer-managment').click(function(){
+						$('#customer-managment-drop').slideToggle();
+					})
+				})
+			</script>
+
+		</div>
+	</div>
+<div class="dashboard">
+	
+<div class="section_title">Edit user - <b>Robert Mishovski</b></div>	
+ 
+
+<div class="add-meal-first">
+  
+<form method="post" action="" enctype="multipart/form-data">
+    <div class="add-meal">
+            <!-- <input type="file" style="border:1px solid gray; padding:10px; border-radius:10px;"><br> -->
+            <div class="slider_switch">
+
+<label class="switch">
+  <input type="checkbox" onchange="valueChanged()" value="1" class="slider">
+  <span class="slider round"></span>
+</label>
+
+
+<script type="text/javascript">
+
+  
+
+
+function valueChanged()
+{
+    if($('.slider').is(":checked"))   {
+
+        $(".pricing_plans").hide();
+        $(".pricing_plans_yearly").css("display", "flex");
+        $(".yearly_type").css("color", "#12d013");
+        $(".discount_label").css("background", "#12d013");
+        $(".monthly_type").css("color", "#a0a0a0");
+        $(".choose_btn").css("background", "#12d013");
+    }
+       
+    else {
+
+        $(".pricing_plans_yearly").hide();
+        $(".pricing_plans").css("display", "flex");
+        $(".yearly_type").css("color", "#a0a0a0");
+        $(".discount_label").css("background", "#a0a0a0");
+        $(".monthly_type").css("color", "#0281ff");
+        $(".choose_btn").css("background", "#0281ff");
+
+        }
+}
+
+
+
+</script>
+
+</div>
+		 
+	<div class="mid_label">ACTIVE</div> 
+<br><br>
+        <div class="row">
+            <div class="column">
+                <label>Name</label>
+                <input type="text" value="Robert Mishovski" name="Name" style="width:300px; padding-left:30px; height:43px"> <br>
+            </div> 
+            <div class="column">
+                <label>Email</label>
+                <input type="text" value="robertmish@gmail.com" name="Price" style="width:300px; padding-left:30px; height:43px">  <br>
+            </div> 
+        </div> 
+        
+        <!-- <div class="row">
+            <input type="text" placeholder="Raiting" name="Raiting" style="width:300px; padding-left:30px; height:43px"> <br> 
+            <input type="text" placeholder="Delivery time" name="Delivery_Time" style="width:300px; padding-left:30px; height:43px"><br>
+        </div>
+        <div class="row"> 
+            <input type="text" placeholder="Restaurant ID" name="Restaurant_ID" style="width:300px; padding-left:30px; height:43px"><br>
+            <input type="text" placeholder="Delivery price" name="Ingradients" style="width:300px; padding-left:30px; height:43px"><br>
+        </div>
+        <div class="row">
+            <input type="text" placeholder="Calories" name="Calories" style="width:300px; padding-left:30px; height:43px"><br>
+            <input type="text" placeholder="Weight" name="Weight" style="width:300px; padding-left:30px; height:43px"><br>
+        </div> -->
+        <!-- <input type="text" placeholder="Ingradients" name="Delivery_Price" style="width:434px; padding-left:30px; height:43px"><br> -->
+        <button><i class="far fa-edit"></i>Save</button>
+
+
+    </div>
+</form>	
+
+
+</div> 
+</div> 
+
+
+</div> 
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+ <script type="text/javascript">
+var html = '<li><input type="text" name="name"><a href="#" class="remove"><i class="fas fa-plus-circle"></i></a></li>';
+ 
+ $(function() {
+    //  $('tbody').sortable();
+  
+     $('#addRow').click(function(e){
+        e.preventDefault();
+         $('#add_here').append(html);
+     });
+  
+     $(document).on('click', '.remove', function(e) {
+         $(this).parents('li').remove();
+         e.preventDefault();
+
+     });
+  
+    //  $('#getValues').click(function(){
+    //      var values = [];
+    //      $('input[name="name"]').each(function(i, elem){
+    //          values.push($(elem).val());
+    //      });
+    //      alert(values.join(', '));
+    //  }); 
+    // OD TUKA GI IZLISTUVA SITE ELEMENTI VO INPUTITE :) - THIS CAN HELP YOU FOR BACKEND 
+ });
+    $(document).ready(function(){
+       
+
+        $("#show_full_order").click( function() { 
+          $("#full_order").slideToggle()
+        });
+        $("#selectmen").change( function() { 
+            var val = $( "#selectmen").val();
+            if(val==1){
+                $("#disc_price").css('display','block');
+                $("#freebly_type").css('display','none');
+
+            }else if(val==2){ 
+                $("#freebly_type").css('display','block');
+                $("#disc_price").css('display','none');
+ 
+            }else{
+                $("#disc_price").css('display','none');
+                $("#freebly_type").css('display','none');
+
+            }
+
+
+        });
+        var coutn_click=0;
+        $("#add_ingradient").click( function() { 
+            coutn_click++;
+            $( "<div class='click_ingradient'><input class='click_btn ingradietns' id='"+coutn_click+"'><i id='count_id="+coutn_click+"' class='fas fa-plus-circle'></i></div>" ).appendTo( "#wrapper_ingradients" );
+        });
+
+        $("#wrapper_ingradients i").click( function() { 
+            alert("test");
+        });
+
+    });
+    function clickimg(){
+        document.querySelector('#real-file').click();
+    }
+
+    function addimg(e){ 
+        var input = $('#real-file')[0];
+        var file = input.files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function(e){
+            $('#custom-button').attr('src', e.target.result);
+    
+        }
+
+    }
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+

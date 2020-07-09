@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head >
+	<title>Order Activity FoodGuru</title>
+	<base href='/'>
+	<link rel="stylesheet" type="text/css" href="restaurants/rest-style">
+	<link rel="icon" type="image/png" href="icons/favicon.png" sizes="32x32">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Work+Sans:600" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="restaurants/all-css">
+	<script src="https://kit.fontawesome.com/8012b4644d.js" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+	<div class="full_wrapper">
+		<div class="left_menu">
+			<i class="fas fa-bars"></i>
+			<div class="dashboard_logo">Restaurant Admin</div>
+			<div class="menu_links">
+				<div class="logo-profile">
+					<img id="rest-logo">
+					<label id="rest_name"></label>
+				</div>
+				<div class="desc-label"></div>
+				<a href="restaurants/dashboard">
+					<div class="menu_item"><i class="fas fa-chart-line"></i>Dashboard</div>
+				</a>
+				<a href="restaurants/orders">
+					<div class="menu_item"><i class="fas fa-truck-loading"></i>Orders Activity</div>
+				</a>
+
+				<a href="restaurants/meals">
+					<div class="menu_item"><i class="fas fa-utensils"></i>Active meals</div>
+				</a>
+				<a href="restaurants/my-revenue">
+					<div class="menu_item"><i class="fas fa-coins"></i>My Revenue</div>
+				</a>
+				<a href="restaurants/my-profile">
+					<div class="menu_item"><i class="far fa-user"></i>My profile</div>
+				</a>
+				<a href="restaurants/support">
+					<div class="menu_item"><i class="far fa-question-circle"></i>Support</div>
+				</a>	
+			</div>
+			<!--menu links-->
+		</div>
+		<!--left menu-->
+
+		<!-- mobile-menu part -->
+		<div class="mobile-part">
+			<div class="mobile-top">
+				<div class="logo-profile-mob">
+					<div class="hello-rest">Welcome,</div>
+					<label id="rest_name-mob"></label>
+				</div>
+				<div class="mobile-btn"><img src="desktopadmin/hamburger"></div>
+			</div>
+			<div class="mobile-menu">
+				<div class="mobile-flex">
+					<div class="items-mob">
+						<a href="restaurants/dashboard">
+							<div class="menu_item-mob"><i class="fas fa-chart-line"></i>Dashboard</div>
+						</a>
+						<a href="restaurants/orders">
+							<div class="menu_item-mob"><i class="fas fa-truck-loading"></i>Orders Activity</div>
+						</a>
+						<a href="restaurants/meals">
+							<div class="menu_item-mob"><i class="fas fa-utensils"></i>Active meals</div>
+						</a>
+						<a href="restaurants/my-revenue">
+							<div class="menu_item-mob"><i class="fas fa-coins"></i>My Revenue</div>
+						</a>
+						<a href="restaurants/my-profile">
+							<div class="menu_item-mob"><i class="far fa-user"></i>My profile</div>
+						</a>
+						<a href="restaurants/support">
+							<div class="menu_item-mob"><i class="far fa-question-circle"></i>Support</div>
+						</a>
+					</div>
+					<div class="menu_links-mob">
+						<div class="logo-profile-mob">
+							<img id="rest-logo-mob">
+							<label id="rest_name-mob"></label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="dashboard">
+			<div class="salesoverview">
+				<div class="card-order-active">
+					<div class="order-card color-card-6">
+						<div class="order-card-inside">
+							<span id="today_orders_num"></span>
+							<label>Today's orders</label>
+						</div>
+					</div>
+					<div class="order-card color-card-5">
+						<div class="order-card-inside">
+							<span id="pending_orders_numb"></span>
+							<label>Pending orders</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="notification-div order-card color-card-5">You have new order</div>	
+
+			<div class="all_orders">
+
+				<div class="order-table">
+					<div class="order-table-bg">
+					<script src="restaurants/order-activity-js"></script>
+					</div>
+					<!--full order wrapper-->
+				</div>
+				<!--full order-->
+			</div>
+			<!--stats section-->
+		</div>
+		<!--dashboard-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

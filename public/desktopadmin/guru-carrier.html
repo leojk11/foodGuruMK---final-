@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Едноставно. Флексибилно. Профитабилно</title>
+    <base href="/">
+
+    <link rel="stylesheet" type="text/css" href="desktop/style">
+    <link rel="icon" href="desktopadmin/favicon" sizes="32x32">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Work+Sans:600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/8012b4644d.js" crossorigin="anonymous"></script>
+
+    <script src="desktopadmin/index"></script>
+</head>
+
+<body>
+    <div id="page-mask"></div>
+    <!--page mask-->
+
+    <!-- <div class="background-container"> -->
+
+    <div class="complete_form" style="display:none">
+
+        <div class="top-part">
+            <span style="color: white; font-size: 28px">Најави се на</span><img class="logo" src="desktop/logo"
+                style="width: 150px; margin-left: 7px; margin-top: 0px; margin-left: 10px;">
+        </div> <!-- top part -->
+
+        <div class="form-part">
+            <div class="one"><input id="username" class="enter" type="text" placeholder=" Е-маил"
+                    style="box-sizing: border-box;"></div>
+            <div class="one"><input id="password" class="enter" type="password" placeholder=" Лозинка"
+                    style=" box-sizing: border-box;"></div>
+            <div class="error_div" style="width: 100%; display: none">
+                <div class="error_msg"
+                    style="text-align: center; background: #ff0b29; color: white; padding: 10px; font-size: 15px;">
+                </div>
+            </div>
+            <div class="one"><button class="login">Најави се</button></div>
+        </div> <!-- form part -->
+
+        <div class="under-form">
+            <div class="left">
+                <input class="checkbox" type="checkbox">
+                <p class="remember" style="color: white;">Запомни ме</p>
+            </div> <!-- left -->
+
+            <div class="right">
+                <a href="#">
+                    <p style="color: #1dbf73" class="forgotten">Заборавена лозинка?</p>
+                </a>
+            </div> <!-- right -->
+        </div>
+
+        <div class="bottom">
+            <p class="final" style="color: white;">Не си член? <a href="#" style="color: #1dbf73">Регистрирај се</a></p>
+        </div> <!-- bottom -->
+    </div> <!-- complete form -->
+    <!-- </div> background container -->
+
+    <div class="header_wrapper"></div> <!-- header -->
+
+    <div class="mobile_header">
+        <div class="mobile_header-wrapper">
+            <div class="mobile_drop_btn">
+                <img src="desktop/hamb">
+            </div>
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('.mobile_drop_btn').click(function () {
+                        $('.mobile_menu').slideToggle(500);
+                    })
+                })
+            </script>
+
+            <div class="mobile_logo">
+                <a href="/">
+                    <img src="desktop/logo">
+                </a>
+            </div>
+
+            <div class="mobile_cart">
+                <a href="my-cart">
+                    <div class="my_cart">
+                        <img src="desktop/cart-icon">
+                        <span class="num_cart_items"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div> <!-- mobile header -->
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#show_cats').click(function () {
+                $('.food_cats').slideToggle();
+            })
+            $.ajax({
+                url: 'client/categories',
+                success: function (response) {
+                    const foodCategoriesDiv = $('.food_cats');
+                    const categories = response.categories;
+
+                    for (var i = 0; i < categories.length; i++) {
+                        const catWrapper = $('<a>').addClass('category-click');
+
+                        const singleCatName = $('<div>').addClass('mobile_menu_item');
+                        singleCatName.append(categories[i].Category);
+                        catWrapper.append(singleCatName);
+
+                        foodCategoriesDiv.append(catWrapper);
+                    };
+
+                    $('.category-click').click(function (event) {
+                        event.preventDefault();
+                        var category = $(this).find('.mobile_menu_item');
+                        var categoryName = $(category).text().trim();
+
+                        // sessionStorage.setItem('catName', categoryName);
+                        location.href = 'category?categoryName=' + categoryName;
+                    });
+                }
+            })
+        })
+    </script>
+
+
+    <div class="mobile_menu" style="display: none">
+        <div class="mobile_menu_item" id="show_cats">
+            <span class="mobile_m_icon">
+                <img src="desktop/cubes-icon">
+            </span>
+            Категории на храна
+            <span class="more_down">
+                <img src="desktop/expand-icon">
+            </span>
+        </div>
+        <div class="food_cats" style="display: none"></div>
+
+        <div class="mobile_menu_item">
+            <span class="mobile_m_icon">
+                <img src="desktop/pin-icon">
+            </span>
+            Ресторани »
+        </div>
+
+        <div class="mobile_menu_item" id="login_mobile">
+            <span class="mobile_m_icon">
+                <img src="desktop/login-icon">
+            </span>
+            Најави се
+        </div>
+
+        <a href="register">
+            <div class="mobile_menu_item mobile_signup_btn">Креирај сметка</div>
+        </a>
+    </div> <!-- mobile menu -->
+
+    <div class="loggedin_mobile_menu" style="display: none">
+        <div class="mobile_menu_item" id="show_cats_logged">
+            <span class="mobile_m_icon">
+                <img src="desktop/cubes-icon">
+            </span>
+            Категории на храна
+            <span class="more_down">
+                <img src="desktop/expand-icon">
+            </span>
+        </div>
+        <div class="food_cats" id="food_cats_logged" style="display: none"></div>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#show_cats_logged').click(function () {
+                    $('#food_cats_logged').slideToggle(500);
+                })
+            })
+        </script>
+
+        <a href="orders">
+            <div class="mobile_menu_item">
+                <span class="mobile_m_icon">
+                    <img src="desktopadmin/bag-icon">
+                </span>
+                Мои нарачки
+            </div>
+        </a>
+
+
+        <a href="address">
+            <div class="mobile_menu_item">
+                <span class="mobile_m_icon">
+                    <img src="desktop/pin-icon">
+                </span>
+                Мои адреси
+            </div>
+        </a>
+
+
+        <a href="profile">
+            <div class="mobile_menu_item">
+                <span class="mobile_m_icon">
+                    <img src="desktopadmin/user-icon">
+                </span>
+                Мој профил
+            </div>
+        </a>
+
+        <div class="mobile_menu_item" id="mobile_logout">
+            <span class="mobile_m_icon">
+                <img src="desktop/login-icon">
+            </span>
+            Одјави се
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#mobile_logout').click(function () {
+                    $.ajax({
+                        url: 'client/logout',
+                        success: function (response) {
+                            if (response.message == 'logged out') {
+                                location.href = '/';
+                            }
+                        }
+                    })
+                })
+            })
+        </script>
+    </div> <!-- mobile menu -->
+
+    <div class="grey_section" id="cat_section">
+        <div class="food_categories" id="food_categories"></div>
+        <!--food categories-->
+    </div>
+    <!--grey section-->
+    <div class="delivery-container">
+        <div class="top-drive">
+            <div class="content-width">
+                <div class="text-drive">
+                    <div class="largest-text">
+                        <span>Вози, доставувај<br>
+                            и заработувај со</span>
+                        <h1>FOOD GURU</h1>
+                    </div>
+                    <div class="smaller-text">
+                        <p>Едноставно. Флексибилно.<br>
+                            Профитабилно.</p>
+                    </div>
+                    <div class="smallest-text">
+                        <p>Приклучи се на тимот<br>
+                            и искористи ги сите<br>
+                            поволности кои ги нудиме.</p>
+                    </div>
+
+                    <a href="delivery-apply"><div class="you-can-apply">
+                        Аплицирај денес
+                    </div></a>
+
+                </div>
+            </div>
+            <div class="guru-icon-bottom">
+                <img src="desktop/waiting-guru">
+            </div>
+
+        </div>
+        <div class="middle-drive">
+            <div class="waving-part">
+                <img src="desktopadmin/wave-guru">
+            </div>
+            <div class="all-middle-content">
+                <div class="why-work">
+                    <h1>Зошто да работиш за Food Guru?</h1>
+                </div>
+                <div class="four-parts">
+                    <div class="one-of-four">
+                        <div class="image-in-four">
+                            <img src="desktopadmin/icon1-delivery">
+                        </div>
+                        <div class="text-in-four"><span>Одлични услови</span>
+                            <p>Почнувајќи од изборот<br> помеѓу работа со полно или<br> скратено работно време, до<br>
+                                можност од покривање на<br> повеќе смени со цел<br> поголема заработка, ние<br> нудиме
+                                одлични услови за<br> работа.</p>
+                        </div>
+                    </div>
+                    <div class="one-of-four">
+                        <div class="image-in-four">
+                            <img src="desktopadmin/icon2-delivery">
+                        </div>
+                        <div class="text-in-four"><span>Лесен систем</span>
+                            <p>Системот по кој работат<br> доставувачите е прегледен,<br> брз, и лесен за користење.<br>
+                                Без разлика на искуството<br> со модерни технологии,<br> секој може да научи како да<br>
+                                го користи системот за само<br> неколку минути.</p>
+                        </div>
+                    </div>
+                    <div class="one-of-four">
+                        <div class="image-in-four">
+                            <img src="desktopadmin/icon3-delivery">
+                        </div>
+                        <div class="text-in-four"><span>Голема заработка</span>
+                            <p>Ние цениме одговорна и<br> исполнителна работа. Со<br> Food Guru, секој може да<br>
+                                заработи
+                                многу.</p>
+                        </div>
+                    </div>
+                    <div class="one-of-four">
+                        <div class="image-in-four">
+                            <img src="desktopadmin/icon4-delivery">
+                        </div>
+                        <div class="text-in-four"><span>Програма за лојалност</span>
+                            <p>Со исполнување на<br> предвидениот месечен<br> минимум на доставени<br> нарачки, секој
+                                Food
+                                Guru<br> доставувач се здобива со<br> бенефити од програмата за<br> лојалност како што
+                                се<br> парични награди, поголема<br> провизија, уникатни<br> поклони, попусти во<br>
+                                омилените ресторани, итн.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-waving">
+                <img src="desktopadmin/white-wave">
+            </div>
+        </div>
+        <div class="other-drive">
+            <div class="other-drive1">
+                <div class="other-title">
+                    <h1>Услови за работа</h1>
+                </div>
+                <div class="content-drive">
+                    <div class="one-row-drive">
+                        <div class="drive-left">
+                            <img src="desktopadmin/car-icon">
+                        </div>
+                        <div class="drive-right">
+                            <p>Достава со кола</p>
+                            <ul>
+                                <li><span>Минимална возрасна граница - 18 години</span< /li>
+                                <li><span>Чисто и угледно возило</li>
+                                <li><span>Поседување на важечка возачка дозвола</span< /li>
+                                <li><span>Возачко искуство од барем една година</span< /li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="one-row-drive">
+                        <div class="drive-left">
+                            <img src="desktopadmin/vespa-icon">
+                        </div>
+                        <div class="drive-right">
+                            <p>Достава со мотор</p>
+                            <ul>
+                                <li><span>Минимална возрасна граница - 18 години</span></li>
+                                <li><span>Поседување на важечка возачка дозвола</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="one-row-drive">
+                        <div class="drive-left">
+                            <img src="desktopadmin/bike-icon">
+                        </div>
+                        <div class="drive-right">
+                            <p>Достава со точак</p>
+                            <ul>
+                                <li><span>Минимална возрасна граница - 18 години</span></li>
+                                <li><span>Поседување на важечка лична карта</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-complete">
+            <div class="bottom-black">
+                <img src="desktopadmin/black1">
+            </div>
+            <div class="bottom-with-text">
+                <h1>Стани Food Guru доставувач, денес!</h1>
+                <ul>
+                    <li>Пиши ни емаил на info@foodguru.mk или јави се на +38970234178</li>
+                </ul>
+                <div class="bottom-to-apply">
+                    <a href="delivery-apply">Аплицирај</a>
+                </div>
+            </div>
+            <div class="bottom-with-image">
+                <img src="desktopadmin/footer-rest">
+            </div>
+        </div>
+
+    </div>
+    <div class="bottom-footer">
+        <div class="footer">
+            <div class="size">
+                <div class="footer_wrapper">
+                    <div class="footer_row" id="food_discovery">
+                        <div class="footer_row_label">The Guru Way</div>
+                        <a href="user-manual">
+                            <div class="footer_item">Упатство за користење</div>
+                        </a>
+                        <a href="manifesto">
+                            <div class="footer_item">Манифесто</div>
+                        </a>
+                        <a href="faq">
+                            <div class="footer_item">FAQs</div>
+                        </a>
+                        <a href="guru-privacy">
+                            <div class="footer_item">Политика на приватност</div>
+                        </a>
+                        <a href="general-conditions">
+                            <div class="footer_item">Општи услови на користење</div>
+                        </a>
+                    </div>
+                    <div class="footer_row" id="chosen_by_chief">
+                        <div class="footer_row_label">Partner with us</div>
+                        <a href="partner-restaurant">
+                            <div class="footer_item">Стани партнер ресторан</div>
+                        </a>
+                        <a href="guru-carrier">
+                            <div class="footer_item">Стани Гуру доставувач</div>
+                        </a>
+                        <div class="footer_item">Аплицирај за работа</div>
+                    </div>
+                    <div class="footer_row" id="customer_care">
+                        <div class="footer_row_label">Customer support</div>
+                        <div class="footer_item">Телефон: +389 70 333 752</div>
+                        <div class="footer_item">Емаил: support@foodguru.mk</div>
+                        <div class="footer_item">Ул: Георги Димитров бр.18</div>
+                    </div>
+                    <div class="footer_row" id="chosen_by_chief">
+                        <div class="footer_row_label">Info</div>
+                        <div class="footer_item">Работно време 10:00 - 18:00</div>
+                        <div class="footer_item">Плаќање во готово или картичка(ПОС терминам)</div>
+                        <div class="footer_item">Плаќање online - наскоро</div>
+                    </div>
+                </div><!-- footer wrapper -->
+            </div> <!-- size -->
+
+            <div class="copyright_info">Copyright © 2020 Foodguru</div>
+        </div>
+    </div>
+
+</body>
+
+</html>

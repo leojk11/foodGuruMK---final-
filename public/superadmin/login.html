@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--<base href="/">-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login | Welcome</title> 
+     <base href="/">
+    <link rel="stylesheet" type="text/css" href="carrier/style">
+    <link rel="icon" href="desktopadmin/favicon" sizes="32x32">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body> 
+    <div class="welcome_admin">
+        <div class="logo" style="width: 100%; text-align: center; margin-bottom: 25px;">
+            <img src="/fgLogo" alt="" style="width:300px">
+        </div>
+        <!-- <h1>Welcome</h1> -->
+        <form action="" method="POST">  
+                <input id="username" type="text" name="admin_name_email" placeholder="Username" required><br><br>
+                <input id="password" type="password" name="admin_password_log_in" placeholder="Password" required><br><br> 
+ 
+                <button id="logbtn" name="loginadmin" style="background: #ff0b29;">Најави се</button>
+        </form>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                const username = document.querySelector('#username');
+                const password = document.querySelector('#password');
+                const loginForm = document.querySelector('form');
+
+                loginReq();
+                function loginReq() {
+                    $('#logbtn').click(function(event){
+                        event.preventDefault();
+                        const loginData = {
+                            username: username.value,
+                            password: password.value
+                        };
+                        console.log(loginData);
+                        const options = {
+                            method: 'POST',
+                            headers: {
+                                'Content-type':'application/json'
+                            },
+                            body: JSON.stringify(loginData)
+                        }
+                        fetch('http://localhost:3000/admin/login', options)
+                            .then((response) => { return response.json() })
+                            .then((myJson) => {
+                                console.log(myJson.message) 
+                                if(myJson.message == 'logged in') {
+                                    window.location.href = 'superadmin/dashboard'
+                                } else {
+                                    console.log(myJson.message);
+                                    const loginErrorDiv = document.createElement('div');
+                                        loginErrorDiv.classList.add('error_div');
+                                        loginErrorDiv.append(myJson.message);
+                                    loginForm.append(loginErrorDiv);
+
+                                    $('.error_div').fadeOut(8000, function(){ $(this).remove();});
+                                }
+                            })
+                    })  
+                }
+            })
+        </script>
+    </div>
+  
+</body>
+</html>

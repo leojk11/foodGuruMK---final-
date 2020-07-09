@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>FoodGuru</title>
+		<base href="/">
+
+		<link rel="stylesheet" type="text/css" href="desktop/style">
+		<link rel="icon" href="desktopadmin/favicon" sizes="32x32">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,900" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Work+Sans:600" rel="stylesheet">
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://kit.fontawesome.com/8012b4644d.js" crossorigin="anonymous"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				function getCookie(name) {
+					var dc = document.cookie;
+					var prefix = name + "=";
+					var begin = dc.indexOf("; " + prefix);
+					if (begin == -1) {
+						begin = dc.indexOf(prefix);
+						if (begin != 0) return null;
+					}
+					else
+					{
+						begin += 2;
+						var end = document.cookie.indexOf(";", begin);
+						if (end == -1) {
+						end = dc.length;
+						}
+					}
+					// because unescape has been deprecated, replaced with decodeURI
+					//return unescape(dc.substring(begin + prefix.length, end));
+					return decodeURI(dc.substring(begin + prefix.length, end));
+				} 
+				
+				function doSomething() {
+					var myCookie = getCookie("cliAct");
+				
+					if (myCookie == null) {
+						// do cookie doesn't exist stuff;
+						console.log('test')
+					}
+					else {
+						// do cookie exists stuff
+						console.log('loe')
+
+						$('#old_header').css({ 'display':'none' });
+						$('#new_header').css({ 'display':'flex' });
+						
+						$('.mobile_menu').css({ 'display':'none' });
+
+						$('.mobile_drop_btn').click(function(){
+							$('.loggedin_mobile_menu').slideToggle(500);
+						})
+						// get logged in user name
+						$.ajax({
+							url: 'client/lg-name',
+							success: function(response){
+								const lgUserFristname = response.singleUserName;
+
+								$('.signup_btn').hide();
+
+								$('.welcomeName').append('Добредојде,' + ' ' + lgUserFristname + '.' + ' ');
+								$('.logoutButton').css({ 'display':'block' })
+
+								$('.logged_in').css('display', 'block');
+							}
+						})
+					}
+				}
+				doSomething();
+			})
+		</script>
+		
+		<script src="desktopadmin/index"></script>
+	</head>
+<body>
+
+	<div id="page-mask"></div><!--page mask-->
+
+	<!-- <div class="background-container"> -->
+
+		<div class="complete_form" style="display:none">
+
+			<div class="top-part">
+				<span style="color: white; font-size: 28px">Најави се на</span><img class="logo" src="desktop/logo" style="width: 150px; margin-left: 7px; margin-top: 0px; margin-left: 10px;">
+			</div> <!-- top part -->
+
+			<div class= "form-part">
+				<div class="one"><input id="username" class="enter" type="text" placeholder=" Е-маил" style="box-sizing: border-box;"></div>
+				<div class="one"><input id="password" class="enter" type="password" placeholder=" Лозинка" style=" box-sizing: border-box;"></div>
+				<div class="error_div" style="width: 100%; display: none">
+					<div class="error_msg" style="text-align: center; background: #ff0b29; color: white; padding: 10px; font-size: 15px;"></div>
+				</div>
+				<div class="one"><button class="login">Најави се</button></div>
+			</div> <!-- form part -->
+
+			<div class="under-form">
+				<div class="left">
+					<input class="checkbox" type="checkbox">
+					<p class="remember" style="color: white;">Запомни ме</p>
+				</div> <!-- left -->
+
+				<div class="right">
+					<a href="#"><p style="color: #1dbf73" class="forgotten">Заборавена лозинка?</p></a>
+				</div> <!-- right -->
+			</div>
+
+			<div class="bottom">
+				<p class="final" style="color: white;">Не си член? <a href="#" style="color: #1dbf73">Регистрирај се</a></p>
+			</div> <!-- bottom -->
+		</div> <!-- complete form -->
+	<!-- </div> background container -->
+
+	<div class="header_wrapper">
+
+	</div>
+
+	<div class="header" id='old_header'>
+		<a href="desktopadmin">
+			<div class="logo">
+				<img id="logo-mascot" src="desktop/mascot" style="height: 35px;">
+				<img id="logo_image" src="desktop/logo" style="position: absolute; margin-top: 8px;">
+			</div> <!-- logo -->
+		</a> <!-- on click gets you on home page -->
+		
+		<div class="top_menu">
+			<div class="login_btn">Најави се</div> <!-- login button -->
+			<div class="signup_btn">Креирај сметка</div> <!-- sign-up button  -->
+				
+			<a href="desktopadmin/my-cart" class="cart_number">
+				<div class="my_cart">
+					<img src="desktop/cart-icon"> 
+					<span class="num_cart_items"></span>
+				</div> <!-- my cart -->
+			</a> <!-- my cart href -->
+		</div> <!-- top menu -->
+	</div><!--header-->
+
+	<div class="header" id="new_header" style="display: none">
+		<a href="desktopadmin">
+			<div class="logo">
+				<img id="logo-mascot" src="desktop/mascot" style="height: 35px;">
+				<img id="logo_image" src="desktop/logo" style="position: absolute; margin-top: 8px;">
+			</div> <!-- logo -->
+		</a> <!-- on click gets you on home page -->
+		
+		<div class="top_menu">
+			<div class="loggedUser" style="padding-top: 17px; display: flex;">
+				<div class="loggedUserName">
+					<a href="desktopadmin/dashboard" class="welcomeName" style="color: white; margin-right: 20px; margin-top: 10px; padding-top: 15px; text-decoration: none;"></a>
+				</div> <!-- shows user name and on click it opens user dashboard -->
+				<div class="logoutButton">
+					<img src="desktopadmin/logout" style="height: 23px;">
+				</div> <!-- logout -->
+			</div> <!-- logged in user name and logout button -->
+			<a href="desktopadmin/my-cart" class="cart_number">
+				<div class="my_cart">
+					<img src="desktop/cart-icon"> 
+					<span class="num_cart_items"></span>
+				</div> <!-- my cart -->
+			</a> <!-- my cart href -->
+		</div> <!-- top menu -->
+	</div><!--header-->
+
+	<div class="mobile_header">
+		<div class="mobile_header-wrapper">
+			<div class="mobile_drop_btn">
+				<img src="desktop/hamb">
+			</div>
+
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$('.mobile_drop_btn').click(function(){
+						$('.mobile_menu').slideToggle(500);
+					})
+				})
+			</script>
+
+			<div class="mobile_logo">
+				<a href="desktopadmin">
+					<img src="desktop/logo">
+				</a>
+			</div>
+
+			<div class="mobile_cart">
+				<a href="desktopadmin/my-cart">
+					<div class="my_cart">
+						<img src="desktop/cart-icon">
+						<span class="num_cart_items"></span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div> <!-- mobile header -->
+
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			$('#show_cats').click(function(){
+				$('.food_cats').slideToggle();
+			})
+
+			fetch('http://localhost:3000/client/categories')
+				.then((repsonse) => { return repsonse.json(); })
+				.then((catResponse) => {
+					const foodCategoriesDiv = $('.food_cats');
+					const categories = catResponse.categories;
+
+					for(var i = 0; i < categories.length; i++){
+						const catWrapper = $('<a>').addClass('category-click');
+
+						const singleCatName = $('<div>').addClass('mobile_menu_item');
+								singleCatName.append(categories[i].Category);
+						catWrapper.append(singleCatName);
+
+						foodCategoriesDiv.append(catWrapper);
+					};
+
+					$('.category-click').click(function(event){
+						event.preventDefault();
+						var category = $(this).find('.mobile_menu_item');
+						var categoryName = $(category).text().trim();
+
+						sessionStorage.setItem('catName', categoryName);
+						location.href = 'desktopadmin/category';
+					});
+
+				});
+		})
+	</script>
+
+
+	<div class="mobile_menu" style="display: none">
+		<div class="mobile_menu_item" id="show_cats">
+			<span class="mobile_m_icon">
+				<img src="desktop/cubes-icon">
+			</span>
+			Категории на храна
+			<span class="more_down">
+				<img src="desktop/expand-icon">
+			</span>
+		</div>
+		<div class="food_cats" style="display: none"></div>
+
+		<div class="mobile_menu_item">
+			<span class="mobile_m_icon">
+				<img src="desktop/pin-icon">
+			</span>
+			Ресторани »
+		</div>
+
+		<div class="mobile_menu_item" id="login_mobile">
+			<span class="mobile_m_icon">
+				<img src="desktop/login-icon">
+			</span>
+			Најави се
+		</div>
+
+		<a href="desktopadmin/register"><div class="mobile_menu_item mobile_signup_btn">Креирај сметка</div></a>
+	</div> <!-- mobile menu -->
+
+	<div class="loggedin_mobile_menu" style="display: none">
+		<div class="mobile_menu_item" id="show_cats_logged">
+			<span class="mobile_m_icon">
+				<img src="desktop/cubes-icon">
+			</span>
+			Категории на храна
+			<span class="more_down">
+				<img src="desktop/expand-icon">
+			</span>
+		</div>
+		<div class="food_cats" id="food_cats_logged" style="display: none"></div>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('#show_cats_logged').click(function(){
+					$('#food_cats_logged').slideToggle(500);
+				})
+			})
+		</script>
+
+		<a href="desktopadmin/orders">
+			<div class="mobile_menu_item">
+				<span class="mobile_m_icon">
+					<img src="desktopadmin/bag-icon">
+				</span>
+				Мои нарачки
+			</div>
+		</a>
+
+
+		<a href="desktopadmin/address">
+			<div class="mobile_menu_item">
+				<span class="mobile_m_icon">
+					<img src="desktop/pin-icon">
+				</span>
+				Мои адреси
+			</div>
+		</a>
+
+
+		<a href="desktopadmin/profile">
+			<div class="mobile_menu_item">
+				<span class="mobile_m_icon">
+					<img src="desktopadmin/user-icon">
+				</span>
+				Мој профил
+			</div>
+		</a>
+
+		<div class="mobile_menu_item" id="logout_mobile_logged">
+			<span class="mobile_m_icon">
+				<img src="desktop/login-icon">
+			</span>
+			Одјави се
+		</div>
+	</div> <!-- mobile menu -->
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#logout_mobile_logged').click(function(){
+				fetch('http://localhost:3000/client/logout')
+					.then((response) => { return response.json() })
+					.then((myJson) => { 
+						if(myJson.message == 'logged out'){
+							location.href = 'desktopadmin'
+						}
+					});
+			})
+		})
+	</script>
+
+
+
+	<div class="grey_section" id="cat_section">
+		<div class="food_categories" id="food_categories"></div><!--food categories-->
+	</div><!--grey section-->
+
+	<div class="homepage_wrapper">
+		<div class="home_logo">
+			<img src="desktop/waiting-guru">
+		</div>
+
+		<div class="search_section">
+			<div class="search_box">
+				<div class="search_img">
+					<img src="desktop/search-icon">
+				</div>
+
+				<div class="search_input_wrap">
+					<input class="search_input" type="text" name="seach" placeholder="Барај храна или ресторани">
+				</div>
+			</div>
+		</div>
+		
+		<div class="all_meals" id="all_meals"></div><!--all meals-->
+
+		
+	<div class="mobile-categories">
+		<script type='text/javascript'>
+			$(document).ready(function(){
+				fetch('http://localhost:3000/client/categories')
+				.then((repsonse) => { return repsonse.json(); })
+				.then((catResponse) => {
+					const foodCategoriesDiv = $('.mobile-categories');
+					const categories = catResponse.categories;
+
+					for(var i = 0; i < categories.length; i++){
+						const categoryLinkWrapper = $('<a>').addClass('mobile_category_link');
+							const mobileCategory = $('<div>').addClass('mobile_category');
+								const mobileCatTitle = $('<div>').addClass('mobile_category_title').append(categories[i].Category);
+								const mobileCategoryImg = $('<img>').attr({ 'src': "superadmin/getCategoryImage?image=" + categories[i].Image});
+							mobileCategory.append(mobileCatTitle);
+
+							mobileCategory.append(mobileCategoryImg);
+						categoryLinkWrapper.append(mobileCategory);
+
+						foodCategoriesDiv.append(categoryLinkWrapper);
+					};
+
+					$('.mobile_category_link').click(function(event){
+						event.preventDefault();
+						var category = $(this).find('.mobile_category').find('.mobile_category_title');
+						var categoryName = $(category).text().trim();
+						// console.log(categoryName)
+
+						sessionStorage.setItem('catName', categoryName);
+						location.href = 'desktopadmin/category';
+					});
+
+				});
+			})
+		</script>
+	</div> <!-- mobile categoris -->
+	</div><!--black section-->
+
+	
+
+	<div class="footer">
+		<div class="size">
+			<div class="footer_wrapper">
+				<div class="footer_row" id="food_discovery">
+					<div class="footer_row_label">The Guru Way</div>
+					<a href="user-manual"><div class="footer_item">Упатство за користење</div></a>
+					<a href="manifesto"><div class="footer_item">Манифесто</div></a>
+					<a href="faq"><div class="footer_item">FAQs</div></a>
+					<a href="guru-privacy"><div class="footer_item">Политика на приватност</div></a>
+					<a href="general-conditions"><div class="footer_item">Општи услови на користење</div></a>
+				</div>
+				<div class="footer_row" id="chosen_by_chief">
+					<div class="footer_row_label">Partner with us</div>
+					<a href="partner-restaurant"><div class="footer_item">Стани партнер ресторан</div></a>
+					<a href="guru-carrier"><div class="footer_item">Стани Гуру доставувач</div></a>
+					<div class="footer_item">Аплицирај за работа</div>
+				</div>
+				<div class="footer_row" id="customer_care">
+					<div class="footer_row_label">Customer support</div>
+					<div class="footer_item">Телефон: +389 70 333 752</div>
+					<div class="footer_item">Емаил: support@foodguru.mk</div>
+					<div class="footer_item">Ул: Георги Димитров бр.18</div>
+				</div>
+				<div class="footer_row" id="chosen_by_chief">
+					<div class="footer_row_label">Info</div>
+					<div class="footer_item">Работно време 10:00 - 18:00</div>
+					<div class="footer_item">Плаќање во готово или картичка(ПОС терминам)</div>
+					<div class="footer_item">Плаќање online - наскоро</div>
+				</div>
+			</div><!-- footer wrapper -->
+		</div> <!-- size -->
+		
+		<div class="copyright_info">Copyright © 2020 Foodguru</div>
+	</div> <!-- footer -->
+
+	<script type="text/javascript">
+		function valueChanged(){
+			if($('.slider').is(":checked")) {
+				$("#logo_image").attr("src", "desktop/fitness-logo");
+				$("#logo-mascot").attr("src", "desktop/fitness-mascot");
+				$("#fintness-label").css("color", "#29bf33");
+				$(".fitness_mode_features").css("display", "block");
+				$(".single_feat").css("color", "#3bff49");
+			} else {
+				$("#logo_image").attr("src", "desktop/logo");
+				$("#logo-mascot").attr("src", "desktop/mascot");
+				$("#fintness-label").css("color", "#636363");
+				$(".fitness_mode_features").css("display", "none");
+			};
+		};
+	</script>
+	
+</body>
+</html>

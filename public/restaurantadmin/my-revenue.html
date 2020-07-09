@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Meals Activity FoodGuru</title>
+    <base href='/'>
+	<link rel="stylesheet" type="text/css" href="restaurants/rest-style">
+	<link rel="icon" type="image/png" href="icons/favicon.png" sizes="32x32">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Work+Sans:600" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="./icons/css/all.css">
+
+<script src="https://kit.fontawesome.com/8012b4644d.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+<body>
+
+<div class="full_wrapper">
+
+<div class="left_menu">
+	<i class="fas fa-bars"></i>
+	<div class="dashboard_logo">Restaurant Admin</div>
+<div class="menu_links">
+	<div class="logo-profile">
+		<img id="rest-logo">
+		<label id="rest_name"></label>
+	</div>
+	<div class="desc-label"></div>
+	<a href="restaurants/dashboard"><div class="menu_item"><i class="fas fa-chart-line"></i>Dashboard</div></a>
+	<a href="restaurants/orders"><div class="menu_item"><i class="fas fa-truck-loading"></i>Orders Activity</div></a>
+	<a href="restaurants/meals"><div class="menu_item"><i class="fas fa-utensils"></i>Active meals</div></a>
+	<a href="restaurants/my-revenue"><div class="menu_item"><i class="fas fa-coins"></i>My Revenue</div></a>
+	<a href="restaurants/my-profile"><div class="menu_item"><i class="far fa-user"></i>My profile</div></a>
+	<a href="restaurants/support">
+		<div class="menu_item"><i class="far fa-question-circle"></i>Support</div>
+	</a>
+</div><!--menu links-->
+
+</div><!--left menu-->
+<!-- mobile-menu part -->
+<div class="mobile-part">
+	<div class="mobile-top">
+		<div class="logo-profile-mob">
+            <div class="hello-rest">Welcome,</div>
+            <label id="rest_name-mob"></label>
+        </div>
+		<div class="mobile-btn"><img src="desktopadmin/hamburger"></div>
+	</div>
+	<div class="mobile-menu">
+		<div class="mobile-flex">
+		<div class="items-mob">
+			<a href="restaurants/dashboard">
+				<div class="menu_item-mob"><i class="fas fa-chart-line"></i>Dashboard</div>
+			</a>
+			<a href="restaurants/orders">
+				<div class="menu_item-mob"><i class="fas fa-truck-loading"></i>Orders Activity</div>
+			</a>
+			<a href="restaurants/meals">
+				<div class="menu_item-mob"><i class="fas fa-utensils"></i>Active meals</div>
+			</a>
+			<a href="restaurants/my-revenue">
+				<div class="menu_item-mob"><i class="fas fa-coins"></i>My Revenue</div>
+			</a>
+			<a href="restaurants/my-profile">
+				<div class="menu_item-mob"><i class="far fa-user"></i>My profile</div>
+			</a>
+			<a href="restaurants/support">
+				<div class="menu_item-mob"><i class="far fa-question-circle"></i>Support</div>
+			</a>
+		</div>
+	</div>
+	</div>
+</div>
+<div class="dashboard">
+<div class="salesoverview not-to-print" style="margin-bottom:50px;"> 
+<div class="card-order-active" >
+		<div class="order-card color-card-6 revenue-card" style="background: linear-gradient(#f46b45 , #eea849);">
+			<div class="order-card-inside">   
+				<span id="today_revenue"></span>
+				<label>Today revenue</label> 
+			</div>
+			<i class="fas fa-donate"></i>
+		</div>
+		<div class="order-card color-card-6 revenue-card" style="background: linear-gradient(#5433ff,#20bdff)">
+			<div class="order-card-inside">   
+				<span id="total_revenue"></span>
+				<label>Total revenue</label> 
+			</div>
+			<i class="fas fa-money-check-alt"></i>
+		</div>
+	</div>	
+</div> 
+<div class="info-all-revenue not-to-print">
+	<div id="dialog">
+		<div id="datepicker"></div>
+	</div>
+<div class="all-revenue">	
+			<div class="title-desc">
+				<h1>Revenue</h1>
+				<label>Filter by date</label>
+			</div> 
+			<div class="table-revenue">
+				<div class="revenue-ttitle"> 
+							<div class="revenue">
+								<label>Filter by date:</label>
+							</div> 
+							<div class="revenue">
+								<span>Day<i class="far fa-calendar-alt"></i></span>
+							</div>
+							<div class="revenue">
+								<span>Earned<i class="fas fa-coins"></i></span>
+							</div>
+				</div>
+				<div class="revenu-tbody">
+					<div class="all-revenues">
+						<div class="revenue-main">
+							<div class="revenue">
+								<i class="far fa-calendar-alt datepicker"></i>
+							</div> 
+							<div class="revenue">
+								<span id="filter-date"></span>
+							</div>
+							<div class="revenue">
+								<span id="filter-revenue"></small></span>
+							</div>
+						</div>
+						 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="info-all-revenue to-print">
+<div class="all-revenue" id="print">
+			<div class="title-desc">
+				<h1>Invoicing</h1>
+				<label>Invoice last 2 weeks </label>
+			</div> 
+			<div class="invoice-two-weeks" >
+				<div class="date-invoice ">
+					<div class="earned">Date of earned</div>	
+					<div class="earned">Earned</div>	
+				</div>
+				<div class="invoice-table"></div>
+				<div class="total-print ">
+					<div class="print not-to-print">
+						<button id="myFunction" onclick="print();">Print<i class="fas fa-print"></i></button>
+					</div>
+					<div class="total">
+						<p>Total: </p>
+						<span id="total-sum"></span>	
+					</div>
+				</div>
+			</div> 				 
+		</div>
+	</div>
+	<div class="all-revenue">
+		<div class="title-desc">
+				<h1>Payment history</h1>
+				<label>All payments to date</label>
+			</div> 
+			<div class="invoice" >
+				<div class="date-invoice ">
+					<div class="earned">Date of payment</div>	
+					<div class="earned">Paid</div>	
+				</div>
+				<div class="main-invoice decor">
+					<div class="earned">14.03.2020</div>	
+					<div class="earned">599<small> ден.</small></div>	
+				</div>
+				<div class="main-invoice decor">
+					<div class="earned">14.03.2020</div>	
+					<div class="earned">599<small> ден.</small></div>	
+				</div>
+				<div class="main-invoice decor">
+					<div class="earned">14.03.2020</div>	
+					<div class="earned">599<small> ден.</small></div>	
+				</div>
+				<div class="main-invoice decor">
+					<div class="earned">14.03.2020</div>	
+					<div class="earned">599<small> ден.</small></div>	
+				</div>
+				<div class="main-invoice decor">
+					<div class="earned">14.03.2020</div>	
+					<div class="earned">599<small> ден.</small></div>	
+				</div>
+			</div>
+		</div>	
+</div>
+</div>
+<script src="restaurants/my-revenue-js"></script>
+</body>
+</html>
+
+
+
+

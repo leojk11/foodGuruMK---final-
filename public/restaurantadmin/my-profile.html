@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Meals Activity FoodGuru</title>
+    <base href='/'>
+    <link rel="stylesheet" type="text/css" href="restaurants/rest-style">
+    <link rel="icon" type="image/png" href="icons/favicon.png" sizes="32x32">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Work+Sans:600" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./icons/css/all.css">
+
+    <script src="https://kit.fontawesome.com/8012b4644d.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="full_wrapper">
+        <div class="left_menu">
+            <i class="fas fa-bars"></i>
+            <div class="dashboard_logo">Restaurant Admin</div>
+            <div class="menu_links">
+                <div class="logo-profile">
+                    <img id="rest-logo">
+                    <label id="rest_name"></label>
+                </div>
+                <div class="desc-label"></div>
+                <a href="restaurants/dashboard">
+                    <div class="menu_item"><i class="fas fa-chart-line"></i>Dashboard</div>
+                </a>
+                <a href="restaurants/orders">
+                    <div class="menu_item"><i class="fas fa-truck-loading"></i>Orders Activity</div>
+                </a>
+
+                <a href="restaurants/meals">
+                    <div class="menu_item"><i class="fas fa-utensils"></i>Active meals</div>
+                </a>
+                <a href="restaurants/my-revenue">
+                    <div class="menu_item"><i class="fas fa-coins"></i>My Revenue</div>
+                </a>
+                <a href="restaurants/my-profile">
+                    <div class="menu_item"><i class="far fa-user"></i>My profile</div>
+                </a>
+                <a href="restaurants/support">
+                    <div class="menu_item"><i class="far fa-question-circle"></i>Support</div>
+                </a>
+            </div>
+        </div>
+        <!-- mobile-menu part -->
+        <div class="mobile-part">
+            <div class="mobile-top">
+                <div class="logo-profile-mob">
+                    <div class="hello-rest">Welcome,</div>
+                    <label id="rest_name-mob"></label>                
+                </div>
+                <div class="mobile-btn"><img src="desktopadmin/hamburger"></div>
+            </div>
+            <div class="mobile-menu">
+                <div class="mobile-flex">
+                    <div class="items-mob">
+                        <a href="restaurants/dashboard">
+                            <div class="menu_item-mob"><i class="fas fa-chart-line"></i>Dashboard</div>
+                        </a>
+                        <a href="restaurants/orders">
+                            <div class="menu_item-mob"><i class="fas fa-truck-loading"></i>Orders Activity</div>
+                        </a>
+
+                        <a href="restaurants/meals">
+                            <div class="menu_item-mob"><i class="fas fa-utensils"></i>Active meals</div>
+                        </a>
+                        <a href="restaurants/my-revenue">
+                            <div class="menu_item-mob"><i class="fas fa-coins"></i>My Revenue</div>
+                        </a>
+                        <a href="restaurants/my-profile">
+                            <div class="menu_item-mob"><i class="far fa-user"></i>My profile</div>
+                        </a>
+                        <a href="restaurants/support">
+                            <div class="menu_item-mob"><i class="far fa-question-circle"></i>Support</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard">
+            <div class="profilelogo" style="margin-bottom:50px;">
+                <div class="profile-logo">
+                    <div class="profile">
+                        <div class="imghi">
+                            <img id="addssimg" onclick="clickimg()">
+                            <input type="file" id="real-file" onchange="addimg(this)" hidden="hidden"
+                                name="fileToUpload">
+                        </div>
+                        <h1 id="my_profile_name"></h1>
+                    </div>
+                    <div class="canceled">
+                        <label class="switch">
+                            <input type="checkbox" class="slider">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="others-info">
+                    <div class="in-row-input">
+                        <div class="info-label">
+                            <label>Adress</label>
+                            <input id="my_profile_adress" type="text" placeholder="Adress">
+                        </div>
+                        <div class="info-label">
+                            <label>Tel. number</label>
+                            <input id="my_profile_phNumber" type="text" placeholder="Tel. number">
+                        </div>
+                    </div>
+                    <div class="in-row-input">
+                        <div class="info-label">
+                            <label>Open</label>
+                            <input id="my_profile_openHr" type="text" placeholder="Open">
+                        </div>
+                        <div class="info-label">
+                            <label>Close</label>
+                            <input id="my_profile_closeHr" type="text" placeholder="Close">
+                        </div>
+                    </div>
+                    <div class="wdays">
+                        <label>Working days</label>
+                        <div class="container">
+                            <ul class="ks-cboxtags">
+                                <li><input type="checkbox" class="changeWorkDay"><label>Monday</label></li>
+                                <li><input type="checkbox" class="changeWorkDay"><label>Tuesday</label></li>
+                                <li><input type="checkbox" class="changeWorkDay"><label>Wednesday</label></li>
+                                <li><input type="checkbox" class="changeWorkDay"><label>Thursday</label></li>
+                                <li><input type="checkbox" class="changeWorkDay"><label>Friday</label></li>
+                                <li><input type="checkbox" class="changeWorkDay"><label>Saturday</label></li>
+                                <li><input type="checkbox" class="changeWorkDay"><label>Sunday</label></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="save-info">
+                        <input type="button" name="Save" id="save" value="Save">
+                    </div>
+                </div>
+            </div>
+            <script src="restaurants/my-profile-js"></script>
+</body>
+
+</html>

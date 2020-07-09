@@ -1,0 +1,62 @@
+body {
+
+	margin: 0;
+	padding: 0;
+	background: red;
+}
+
+
+.full_wrapper {
+
+
+}
+
+
+.mid_logo {width: 200px;margin: 0 auto;margin-top: 144px;}
+
+
+.mid_logo img {width: 100%;}
+
+.logotext {width: 400px;margin: 0 auto;margin-top: 30px;}
+
+
+.logotext img {
+
+	
+}
+
+.hello_text {text-align: center;font-family: Roboto;font-size: 28px;color: #fff;margin-top: 14px;}
+
+
+
+
+@media only screen and (max-width: 768px) {
+
+
+
+.full_wrapper {width: 100%;}
+
+
+.mid_logo {width: 171px;margin: 0 auto;margin-top: 144px;}
+
+
+.mid_logo img {width: 100%;}
+
+.logotext {width: 200px;margin: 0 auto;margin-top: 30px;}
+
+
+.logotext img {width: 100%;}
+
+.hello_text {text-align: center;font-family: Roboto;font-size: 14px;color: #fff;margin-top: 14px;}
+
+
+
+
+
+
+
+
+
+
+
+}
